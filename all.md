@@ -1,12 +1,18 @@
 <img src="img/redhat.png" style="width: 350px;" border=0/>
 
-<h2>Hands-on Training with OpenShift 4 (Self-paced) - April 2019</h2>
+<h2>Hands-on Training with OpenShift 4.1 (Self-paced) - August 2019</h2>
 
 **Authors**:
+
+First edition:
 
 * Rhys Oxenham <<roxenham@redhat.com>>
 * Erik Jacobs <<ejacobs@redhat.com>>
 * James Falkner <<jfalkner@redhat.com>>
+
+Update to 4.1:
+
+* Jacob Liberman <<jliberma@redhat.com>>
 
 
 #**Lab Overview**
