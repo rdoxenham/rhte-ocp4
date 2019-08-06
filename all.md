@@ -497,7 +497,7 @@ The operator's log is **extremely** long, so it is recommended that you redirect
 it to a file instead of trying to look at it directly with the `logs` command.
 
 # Scaling an OpenShift 4 Cluster 
-With OpenShift 4.0+, we now have the ability to dynamically scale the cluster
+With OpenShift 4+, we now have the ability to dynamically scale the cluster
 size through OpenShift itself.
 
 ## Manual Cluster Scale Up/Down
@@ -507,7 +507,7 @@ In this exercise we're going to manually add worker nodes to our cluster:
 1. Go to the OpenShift web console and login with `kubeadmin` (or your admin
 username if different)
 
-1. Browse to `Machines` on the left-hand side-bar, and click `Machine Sets`.
+1. Browse to `Compute` on the left-hand side-bar, and click `Machine Sets`.
 
 1. On the `Machine Sets` page, select `openshift-machine-api` from the `Project`
 dropdown and you should see the machine sets:
@@ -571,19 +571,11 @@ others, these are the ones that will have just been added in. Before continuing,
 scale back down by editing the count to whatever it was previously for the
 `Machine Set`, i.e. return it to '1' node.
 
-### Note
-The default installation currently creates two routers, but they are on the
-same host. This is a known bug. It is possible that when you scale down your
-cluster that you may inadvertently end up removing the node where the router
-was running, which will temporarily make the console and other resources
-unavailable. If you suddenly lose access to the web console, wait a few
-moments, and then check to see the status of the router pod with:
-
 ~~~bash
-$ oc get pod -n openshift-ingress
-NAME                            READY     STATUS    RESTARTS   AGE
-router-default-dffd8548-6g4hz   1/1       Running   0          23h
-router-default-dffd8548-vxtt8   1/1       Running   0          23h
+$ oc get pods -n openshift-ingress -o wide
+NAME                              READY   STATUS    RESTARTS   AGE    IP            NODE                           NOMINATED NODE   READINESS GATES
+router-default-67c4f9c84f-8b6jv   1/1     Running   0          5d8h   10.129.2.7    ip-10-0-148-110.ec2.internal   <none>           <none>
+router-default-67c4f9c84f-th6nz   1/1     Running   0          4d8h   10.131.0.26   ip-10-0-141-97.ec2.internal    <none>           <none>
 ~~~
 
 If there is no router pod, or if it is in the `ContainerCreating` state, wait
