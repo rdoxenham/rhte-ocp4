@@ -25,9 +25,15 @@ Now we're ready to proceed with the rest of our lab steps. If you had any proble
 
 #**Getting Started**
 
-In the GuidGrabber output you'll see a link to the lab-instructions that are hosted on the OpenShift cluster itself, simply hit this link and follow the on-screen instructions. See below for an example:
+In the GuidGrabber output you'll see a link to the lab-instructions that are hosted on the OpenShift cluster itself, simply hit this link, and you'll be asked to login to OpenShift:
+
+<img src="img/ocp-console.png" style="width: 1000px;"/>
+
+The credentials are listed in the GuidGrabber page; the username is always "**kubeadmin**", but the password is randomly generated. Use these credentials to log-in, allow the permissions, and then follow the lab guide instructions, which should look like the following:
 
 <img src="img/labguide.png" style="width: 1000px;"/>
+
+> **NOTE**: You will need to accept some self-signed certificates in your browser.
 
 Good luck, and let us know if we can help you.
 
